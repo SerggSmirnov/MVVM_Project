@@ -14,7 +14,5 @@ class ViewController: UIViewController {
         let viewModel = ViewModel()
         view = RootNiblessView(viewModel: viewModel)
     }
-
-
 }
 

@@ -9,9 +9,29 @@ import UIKit
 
 class RootNiblessView: NiblessView {
     
-    private var viewModel: ViewModel?
+    //MARK: - Init
     
-    private var backColor = #colorLiteral(red: 0.9796730876, green: 0.9796730876, blue: 0.9796730876, alpha: 1)
+    init(viewModel: ViewModel) {
+        super.init(frame: .zero)
+        self.viewModel = viewModel
+    }
+    
+    //MARK: - Private constants
+    private enum UIConstants {
+        static let logoWidht: CGFloat = 150
+        static let logoHeight: CGFloat = 150
+        static let spacing: CGFloat = 20
+        static let stackInsetToLogo: CGFloat = 100
+        static let stackHeight: CGFloat = 50
+        static let buttonCornerRadius: CGFloat = 10
+        static let buttonFontSize: CGFloat = 20
+        static let backColor: UIColor = #colorLiteral(red: 0.9796730876, green: 0.9796730876, blue: 0.9796730876, alpha: 1)
+        static let buttonColor: UIColor = #colorLiteral(red: 0.8913782835, green: 0.8913782835, blue: 0.8913782835, alpha: 1)
+    }
+    
+    //MARK: - Private properties
+    
+    private var viewModel: ViewModel?
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -24,11 +44,10 @@ class RootNiblessView: NiblessView {
     private lazy var signInButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .systemGray4
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = UIConstants.buttonCornerRadius
         button.setTitle("Sign In", for: .normal)
-        button.setImage(UIImage(named: "plus"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 20)
-        button.setTitleColor(backColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: UIConstants.buttonFontSize)
+        button.setTitleColor(UIConstants.buttonColor, for: .normal)
         button.addTarget(viewModel, action: #selector(viewModel?.signInButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -37,11 +56,10 @@ class RootNiblessView: NiblessView {
     private lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .systemGray2
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = UIConstants.buttonCornerRadius
         button.setTitle("Sign Up", for: .normal)
-        button.setImage(UIImage(named: "plus"), for: .normal)
-        button.setTitleColor(backColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.setTitleColor(UIConstants.buttonColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: UIConstants.buttonFontSize)
         button.addTarget(viewModel, action: #selector(viewModel?.signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -49,28 +67,21 @@ class RootNiblessView: NiblessView {
     
     private var stackViewButtons = UIStackView()
     
-    //MARK: - Init
-    
-    init(viewModel: ViewModel) {
-        super.init(frame: .zero)
-        self.viewModel = viewModel
-        
-    }
-    
     //MARK: - Methods
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
+        
         setupViews()
         setConstraints()
     }
     
     private func setupViews() {
-        backgroundColor = backColor
+        backgroundColor = UIConstants.backColor
         addSubview(logoImageView)
         stackViewButtons = UIStackView(arrangedSubviews: [signInButton, signUpButton],
                                        axis: .horizontal,
-                                       spacing: 20)
+                                       spacing: UIConstants.spacing)
         stackViewButtons.distribution = .fillEqually
         addSubview(stackViewButtons)
     }
@@ -82,15 +93,18 @@ extension RootNiblessView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            logoImageView.heightAnchor.constraint(equalToConstant: 150),
-            logoImageView.widthAnchor.constraint(equalToConstant: 150),
+            logoImageView.heightAnchor.constraint(equalToConstant: UIConstants.logoHeight),
+            logoImageView.widthAnchor.constraint(equalToConstant: UIConstants.logoWidht),
             logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            stackViewButtons.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 50),
-            stackViewButtons.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackViewButtons.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            stackViewButtons.heightAnchor.constraint(equalToConstant: 50)
+            stackViewButtons.topAnchor.constraint(equalTo: logoImageView.bottomAnchor,
+                                                  constant: UIConstants.stackInsetToLogo),
+            stackViewButtons.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                                      constant: UIConstants.spacing),
+            stackViewButtons.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                                       constant: -UIConstants.spacing),
+            stackViewButtons.heightAnchor.constraint(equalToConstant: UIConstants.stackHeight)
         ])
     }
 }

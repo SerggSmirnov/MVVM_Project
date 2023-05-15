@@ -117,9 +117,9 @@
 		509B02962A12BB2200E1520A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				509B02802A129F1A00E1520A /* Info.plist */,
 				509B027B2A129F1A00E1520A /* Assets.xcassets */,
 				509B02862A12A06900E1520A /* LaunchScreen.storyboard */,
+				509B02802A129F1A00E1520A /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
