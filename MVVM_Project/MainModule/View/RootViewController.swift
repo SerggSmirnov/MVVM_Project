@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let viewModel = ViewModel()
+        let viewModel = RootViewModel()
         view = RootNiblessView(viewModel: viewModel)
     }
 }

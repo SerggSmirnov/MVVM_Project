@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ViewModel {
+final class RootViewModel {
     
     @objc func signInButtonTapped() {
         print("Sign In")
@@ -16,5 +16,4 @@ class ViewModel {
     @objc func signUpButtonTapped() {
         print("Sign Up")
     }
-    
 }

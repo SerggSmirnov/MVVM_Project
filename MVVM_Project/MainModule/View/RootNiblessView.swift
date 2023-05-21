@@ -9,14 +9,15 @@ import UIKit
 
 class RootNiblessView: NiblessView {
     
-    //MARK: - Init
+    // MARK: - Init
     
-    init(viewModel: ViewModel) {
+    init(viewModel: RootViewModel) {
         super.init(frame: .zero)
         self.viewModel = viewModel
     }
     
-    //MARK: - Private constants
+    // MARK: - Private constants
+    
     private enum UIConstants {
         static let logoWidht: CGFloat = 150
         static let logoHeight: CGFloat = 150
@@ -25,13 +26,14 @@ class RootNiblessView: NiblessView {
         static let stackHeight: CGFloat = 50
         static let buttonCornerRadius: CGFloat = 10
         static let buttonFontSize: CGFloat = 20
-        static let backColor: UIColor = #colorLiteral(red: 0.9796730876, green: 0.9796730876, blue: 0.9796730876, alpha: 1)
-        static let buttonColor: UIColor = #colorLiteral(red: 0.8913782835, green: 0.8913782835, blue: 0.8913782835, alpha: 1)
+        static let backColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        static let buttonColor: UIColor = .gray
+        static let buttonTextColor: UIColor = .white
     }
     
-    //MARK: - Private properties
+    // MARK: - Private properties
     
-    private var viewModel: ViewModel?
+    private var viewModel: RootViewModel?
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -43,11 +45,11 @@ class RootNiblessView: NiblessView {
     
     private lazy var signInButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .systemGray4
+        button.backgroundColor = UIConstants.buttonColor
         button.layer.cornerRadius = UIConstants.buttonCornerRadius
         button.setTitle("Sign In", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: UIConstants.buttonFontSize)
-        button.setTitleColor(UIConstants.buttonColor, for: .normal)
+        button.setTitleColor(UIConstants.buttonTextColor, for: .normal)
         button.addTarget(viewModel, action: #selector(viewModel?.signInButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -55,10 +57,10 @@ class RootNiblessView: NiblessView {
     
     private lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .systemGray2
+        button.backgroundColor = UIConstants.buttonColor
         button.layer.cornerRadius = UIConstants.buttonCornerRadius
         button.setTitle("Sign Up", for: .normal)
-        button.setTitleColor(UIConstants.buttonColor, for: .normal)
+        button.setTitleColor(UIConstants.buttonTextColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: UIConstants.buttonFontSize)
         button.addTarget(viewModel, action: #selector(viewModel?.signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +69,7 @@ class RootNiblessView: NiblessView {
     
     private var stackViewButtons = UIStackView()
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
@@ -87,7 +89,7 @@ class RootNiblessView: NiblessView {
     }
 }
 
-//MARK: - Set Constraints
+// MARK: - Set Constraints
 
 extension RootNiblessView {
     
