@@ -9,9 +9,21 @@ import Foundation
 
 // MARK: - UserData
 
-struct User: Codable {
-    let id, username, deviceToken, name: String
+//struct User: Codable {
+//    let id, username, deviceToken, name: String
+//}
+//
+//typealias UsersData = [User]
+
+struct UserNamesResponse: Decodable {
+    let users: [User]
 }
 
-typealias UsersData = [User]
+struct User: Decodable {
+    let id: String
+    let username: String
+    let deviceToken: String
+    let name: String
+}
+
 
