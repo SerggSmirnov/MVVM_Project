@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		503441832A1D3F5000C90983 /* UserNamesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503441822A1D3F5000C90983 /* UserNamesRequest.swift */; };
 		509B02732A129F1800E1520A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B02722A129F1800E1520A /* AppDelegate.swift */; };
 		509B02752A129F1800E1520A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B02742A129F1800E1520A /* SceneDelegate.swift */; };
 		509B02772A129F1800E1520A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B02762A129F1800E1520A /* RootViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		503441822A1D3F5000C90983 /* UserNamesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNamesRequest.swift; sourceTree = "<group>"; };
 		509B026F2A129F1800E1520A /* MVVM_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509B02722A129F1800E1520A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509B02742A129F1800E1520A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				509B029C2A18928C00E1520A /* APIClient.swift */,
+				503441822A1D3F5000C90983 /* UserNamesRequest.swift */,
 				509B029E2A18929F00E1520A /* UsersData.swift */,
 			);
 			path = API;
@@ -254,6 +257,7 @@
 				50D2A66E2A19E3EB0017B688 /* NetworkViewController.swift in Sources */,
 				509B02942A12B9B700E1520A /* UIStackView + Extensions.swift in Sources */,
 				509B02A12A18A40D00E1520A /* NetworkViewModel.swift in Sources */,
+				503441832A1D3F5000C90983 /* UserNamesRequest.swift in Sources */,
 				509B029F2A18929F00E1520A /* UsersData.swift in Sources */,
 				509B029D2A18928C00E1520A /* APIClient.swift in Sources */,
 				509B02732A129F1800E1520A /* AppDelegate.swift in Sources */,
