@@ -12,7 +12,7 @@ protocol NetworkViewModelDelegate: AnyObject {
     func didLoadInitialUserNames()
 }
 
-final class NetworkViewModel: NSObject, ObservableObject {
+final class NetworkViewModel: NSObject {
     
     var arrayUserNames = [String]()
     
@@ -46,7 +46,7 @@ extension NetworkViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         arrayUserNames.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NetworkNiblessView.cellID) else { return UITableViewCell() }
         cell.textLabel?.text = arrayUserNames[indexPath.row]

@@ -14,5 +14,3 @@ struct User: Codable {
 }
 
 typealias UsersData = [User]
-
-
